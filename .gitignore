@@ -1,1 +1,3 @@
 *.pyc     # exclude all files with .pyc extension
+__pycache__/
+*.py[cod]
