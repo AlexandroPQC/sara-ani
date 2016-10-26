@@ -1,0 +1,17 @@
+
+.container {
+  width: 95%;
+  max-width: none;
+}
+
+.navbar-custom {
+    background-color: #00695c ;
+}
+
+.footer-custom {
+    background-color: #00695c ;
+}
+
+.body {
+  background-color: #eeeeee ;
+}

@@ -15,7 +15,7 @@ DATABASES = {
         'NAME': 'saranani',
         'USER': 'alexandro',
         'PASSWORD' : 'admin',
-        'HOST' : 'localhost',
+        'HOST' : '172.17.0.2',
         'PORT' : '5432',
     }
 }
@@ -25,3 +25,4 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS =  [BASE_DIR.child('static')]

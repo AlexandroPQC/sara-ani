@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<html lang="es">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    {% load static from staticfiles %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <!-- Desktop dropdown-->
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#!">Perfil</a></li>
+          <li><a href="#!">Configuración</a></li>
+          <li class="divider"></li>
+          <li><a href="#!">Cerrar Sesión</a></li>
+        </ul>
+        <!-- Mobile dropdown -->
+        <ul id="dropdown2" class="dropdown-content">
+          <li><a href="#!">Perfil</a></li>
+          <li><a href="#!">Configuración</a></li>
+          <li class="divider"></li>
+          <li><a href="#!">Cerrar sesión</a></li>
+        </ul>
+          <nav class="blue-grey darken-1 valign">
+            <div class="nav-wrapper">
+               <a href="#!" class="brand-logo"><i class="material-icons">group_work</i>Sarañani</a>
+               <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+               <ul class="right hide-on-med-and-down">
+                 <li><a href="https://github.com/AlexandroPQC/sara-ani">Dashboard</a></li>
+                 <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
+                 <li>
+                   <a class="dropdown-button" href="#!" data-activates="dropdown1">Usuario
+                     <i class="material-icons right">arrow_drop_down</i>
+                   </a>
+                 </li>
+               </ul>
+               <ul class="side-nav" id="mobile-nav">
+                 <li><a href="https://github.com/AlexandroPQC/sara-ani">Dashboard</a></li>
+                 <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
+                 <li>
+                   <a class="dropdown-button" href="#!" data-activates="dropdown2">Usuario
+                     <i class="material-icons right">arrow_drop_down</i>
+                   </a>
+                 </li>
+               </ul>
+             </div>
+          </nav>
+        </div>
+      </header>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>
