@@ -26,7 +26,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     birthday = models.DateField(null=True, blank=True)
-    nit = models.PositiveIntegerField(unique=True)
+    nit = models.CharField(max_length=20)
     avatar = models.URLField()
 
     objects = UserManager()
