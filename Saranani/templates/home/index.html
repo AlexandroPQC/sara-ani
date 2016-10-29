@@ -9,14 +9,14 @@
       <li><a href="#!">Perfil</a></li>
       <li><a href="#!">Configuración</a></li>
       <li class="divider"></li>
-      <li><a href="#!">Cerrar Sesión</a></li>
+        <li><a href="{% url 'user-logout' %}">Cerrar Sesion</a></li>
     </ul>
     <!-- Mobile dropdown -->
     <ul id="dropdown2" class="dropdown-content">
       <li><a href="#!">Perfil</a></li>
       <li><a href="#!">Configuración</a></li>
       <li class="divider"></li>
-      <li><a href="#!">Cerrar sesión</a></li>
+      <li><a href="{% url 'user-logout' %}">Cerrar Sesion</a></li>
     </ul>
       <nav class="blue-grey darken-1 valign">
         <div class="nav-wrapper">
@@ -26,7 +26,8 @@
              <li><a href="https://github.com/AlexandroPQC/sara-ani">Dashboard</a></li>
              <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
              <li>
-               <a class="dropdown-button" href="#!" data-activates="dropdown1">{{ user.username }}
+               <a class="dropdown-button" href="#!" data-activates="dropdown1">{{ user.first_name }} {{user.last_name}}
+                 <img src="{{ user.avatar }}" class="circle responsive-img left" />
                  <i class="material-icons right">arrow_drop_down</i>
                </a>
              </li>
@@ -35,7 +36,7 @@
              <li><a href="https://github.com/AlexandroPQC/sara-ani">Dashboard</a></li>
              <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
              <li>
-               <a class="dropdown-button" href="#!" data-activates="dropdown2">{{ user.username }}
+               <a class="dropdown-button" href="#!" data-activates="dropdown2">{{ user.first_name }} {{user.last_name}}
                  <i class="material-icons right">arrow_drop_down</i>
                </a>
              </li>
@@ -50,9 +51,19 @@
            <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
            <ul class="right hide-on-med-and-down">
              <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
+             <li>
+               <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+                 Ingresar con Facebook
+               </a>
+             </li>
            </ul>
            <ul class="side-nav" id="mobile-nav">
              <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
+             <li>
+               <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+                 Ingresar con Facebook
+               </a>
+             </li>
            </ul>
          </div>
       </nav>
