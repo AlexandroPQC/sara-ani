@@ -27,8 +27,24 @@ DATABASES = {
 STATIC_URL = '/static/'
 STATICFILES_DIRS =  [BASE_DIR.child('static')]
 
-SOCIAL_AUTH_FACEBOOK_KEY = '125745471234326'
-SOCIAL_AUTH_FACEBOOK_SECRET = '1baa17647010f976c88dc66097ea9ab9'
+SOCIAL_AUTH_FACEBOOK_KEY = ''
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
 #
 # SOCIAL_AUTH_TWITTER_KEY = 'K4xxxxxxxxxxxxxxxxxxxxxx'
 # SOCIAL_AUTH_TWITTER_SECRET = '7hexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = ''
+
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 14,
+    'backgroundColor': 'grey',
+    'fullscreenControl': 'true',
+    'center' : {'lat' : -16.503816418559943, 'lng' : -68.12961772084236,},
+    'panControl': 'true',
+    'componentRestrictions': {'country': 'bo'}
+}
+
+GEOPOSITION_MARKER_OPTIONS = {
+    'position' : {'lat' : -16.503816418559943, 'lng' : -68.12961772084236,},
+}
