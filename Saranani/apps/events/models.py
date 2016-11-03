@@ -9,6 +9,8 @@ class Event(models.Model):
     age_restriction = models.PositiveIntegerField(blank=True, null=True)
     category = models.ManyToManyField('Category')
     PlaceSchedule = models.ManyToManyField('PlaceSchedule', blank=True)
+    attachment = models.CharField(blank=True, max_length=200)
+
     def __str__(self):
         return self.title
 
@@ -40,8 +42,8 @@ class PlaceSchedule(models.Model):
     schedules = models.ManyToManyField('Schedule', blank=True)
     places = models.ForeignKey('Place', blank=True, null=True)
 
-    # def __str__(self):
-    #     return str(self.places)
+    def __str__(self):
+        return str(self.id)
 
 class Galery(models.Model):
     name = models.CharField(blank=True, max_length=100)
