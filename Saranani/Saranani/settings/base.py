@@ -14,6 +14,7 @@ SECRET_KEY = '@fnd59#mtymesos+0_+yf=kf!gyx49!z6m%yn(3in@mfa9$oc_'
 # Application definition
 
 DJANGO_APPS = [
+    'material.admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -23,6 +24,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'material',
     'social.apps.django_app.default',
     'geoposition',
 ]
