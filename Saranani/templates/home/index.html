@@ -50,7 +50,7 @@
            <a href="#!" class="brand-logo"><i class="material-icons">group_work</i>Sarañani</a>
            <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
            <ul class="right hide-on-med-and-down">
-             <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
+             <li><a href="https://github.com/AlexandroPQC/sara-ani">GitHub</a></li>
              <li>
                <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
                  Ingresar con Facebook
@@ -58,7 +58,7 @@
              </li>
            </ul>
            <ul class="side-nav" id="mobile-nav">
-             <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
+             <li><a href="https://github.com/AlexandroPQC/sara-ani">GitHub</a></li>
              <li>
                <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
                  Ingresar con Facebook
@@ -74,69 +74,72 @@
 
 {% endblock %}
 
+{% block toolbar %}
+{% if user.is_authenticated %}
+
+{% else %}
+{% endif %}
+{% endblock %}
+
+
 {% block content %}
 
 <div class="row">
-  <div class="col s12 m6 l8">
-    <a href="#" class="waves-efect waves-light btn-large"><i class="material-icons left">add</i>Añadir evento</a>
-  </div>
-  <div class="col s12 m6 l4">
-    <nav>
-      <div class="nav-wrapper">
-        <form>
-          <div class="input-field">
-            <input id="search" type="search" required placeholder="Buscar evento">
-            <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-          </div>
-        </form>
-      </div>
-    </nav>
-  </div>
+     <div class="col s12">
+       <div class="slider">
+       <ul class="slides">
+         <li>
+           <img src="http://i1216.photobucket.com/albums/dd362/FREDERICKFMS/SUCRE%20OTROS/SUCRE4-1.jpg"> <!-- random image -->
+           <div class="caption center-align">
+             <h3>¡Bienvenidos a Sarañani!</h3>
+             <h5 class="light grey-text text-lighten-3">Plataforma de Eventos Culturales La Paz</h5>
+           </div>
+         </li>
+         <li>
+           <img src="https://revistavamos.files.wordpress.com/2010/07/foto1.jpg"> <!-- random image -->
+           <div class="caption right-align">
+             <h5 class="light grey-text text-lighten-3"></h5>
+           </div>
+         </li>
+       </ul>
+     </div>
+   </div>
 </div>
-<div class="row">
-  <div class="col s12 m6 l4">
-    <div class="container">
-      <div class="card small">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="static/images/museos_web.png" />
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">X Larga noche de Museos <i class="material-icons right">more_vert</i></span>
-          <p>
-            <a href="#">www.gampl.com.bo</a>
-          </p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">X Larga noche de Museos <i class="material-icons right">close</i></span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col s12 m6 l4">
-    <div class="container">
-      <div class="card small">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="static/images/museos_web.png" />
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">X Larga noche de Museos <i class="material-icons right">more_vert</i></span>
-          <p>
-            <a href="#">www.gampl.com.bo</a>
-          </p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">X Larga noche de Museos <i class="material-icons right">close</i></span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="row center">
+  <a class="waves-effect waves-light btn-large" href="./events"><i class="material-icons left">search</i>Conoce</a>
 </div>
 
+
+
 {% endblock %}
+
+
+
+{% block footer %}
+<div class="row">
+  <div class="col s12">
+    <footer class="page-footer blue-grey darken-1 valign">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Sarañani</h5>
+            <p class="grey-text text-lighten-4"></p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text"></h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="http://hacklab.org.bo/" target="_blank">#alexandr0</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">licencia de Creative Commons Reconocimiento 4.0 Internacional</a>.
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+{% endblock  %}
