@@ -25,6 +25,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'material',
+    'material.frontend',
     'social.apps.django_app.default',
     'geoposition',
 ]

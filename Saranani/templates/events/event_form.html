@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load material_form %}
 {% block title %} Eventos {% endblock %}
 
 {% block nav-bar %}
@@ -75,61 +75,15 @@
 {% endblock %}
 
 
-{% block toolbar %}
-{% if user.is_authenticated %}
-<div class="row">
-  <div class="col s12 m6 l8">
-    <a href="./new" class="waves-efect waves-light btn-large"><i class="material-icons left">add</i>Añadir evento</a>
-  </div>
-  <div class="col s12 m6 l4">
-    <nav>
-      <div class="nav-wrapper">
-        <form>
-          <div class="input-field">
-            <input id="search" type="search" required placeholder="Buscar evento">
-            <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-          </div>
-        </form>
-      </div>
-    </nav>
-  </div>
-</div>
-{% else %}
-{% endif %}
-{% endblock %}
-
 {% block content %}
 
 <div class="row">
-  {% if object_list %}
+  <form method="POST">
+    {% csrf_token %}
+    {% form form=form %}{% endform %}
+    <button type="submit" name="_submit" class="btn">Submit</button>
+  </form>
+</div>
 
-  {% for event in object_list %}
-  <div class="col s12 m6 l4">
-    <div class="container">
-      <div class="card small">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src={{event.attachment}} />
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{event.title}}<i class="material-icons right">more_vert</i></span>
-          <p>
-            <a href="#">{{event.webpage}}</a>
-          </p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{event.title}}<i class="material-icons right">close</i></span>
-          <p>{{event.description}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-{% else %}
-<div class="col s12">
-  <h1>No existen eventos registrados. :( </h1>
-</div>
-{% endif %}
 
 {% endblock %}
