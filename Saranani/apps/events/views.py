@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
-from django.views.generic import ListView, CreateView
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from .models import Event
 from .forms import EventForm
@@ -9,11 +10,6 @@ class EventListView(ListView):
     model = Event
     template_name = 'events/event_list'
 
-# class CreateEvent(CreateView):
-#     model = Event
-#     form_class = EventForm
-#     template_name = 'events/event_form.html'
-#     success_url = reverse_lazy('event:events/_list')
 
 def EventView(request):
     if request.method == 'POST':
@@ -42,3 +38,22 @@ def DeleteEvent(request, id_event):
         event.delete()
         return redirect('events')
     return render(request, 'events/event_delete.html', {'event':event})
+
+
+class CreateEvent(CreateView):
+    model = Event
+    form_class = EventForm
+    template_name = 'events/event_form.html'
+    success_url = reverse_lazy('events')
+
+
+class EventUpdate(UpdateView):
+    model = Event
+    form_class = EventForm
+    template_name = 'events/event_form.html'
+    success_url = reverse_lazy('events')
+
+class EventDelete(DeleteView):
+    model = Event
+    template_name = 'events/event_delete.html'
+    success_url = reverse_lazy('events')

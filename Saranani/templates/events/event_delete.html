@@ -100,13 +100,13 @@
       <form method="POST">
       <div class="card-content">
         {% csrf_token %}
-        <h4>¿Desea eliminar el evento {{ event.title }}?</h4>
+        <h4>¿Desea eliminar el evento {{ object.title }}?</h4>
         </div>
         <div class="card-action">
-          <button class="btn waves-effect waves-light" type="submit" name="action">Si, eliminar
+          <button class="btn waves-effect waves-light red" type="submit" name="action">Si, eliminar
           <i class="material-icons right">delete</i>
           </button>
-          <a class="waves-effect waves-light btn" href="{% url 'events' %}"><i class="material-icons right">delete</i>Cancelar</a>
+          <a class="waves-effect waves-light btn" href="{% url 'events' %}">Cancelar</a>
         </div>
       </form>
     </div>

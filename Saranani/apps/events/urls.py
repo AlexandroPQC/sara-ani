@@ -1,10 +1,9 @@
 from django.conf.urls import url
-from .views import EventListView, EventView, EditEvent, DeleteEvent
+from .views import EventListView, EventView, EditEvent, DeleteEvent, EventUpdate, CreateEvent, EventDelete
 
 urlpatterns = [
-    # url(r'^$', IndexView.as_view())
     url(r'^events/$', EventListView.as_view(), name='events'),
-    url(r'^events/new$', EventView, name='new_event'),
-    url(r'^events/(?P<id_event>\d+)/$', EditEvent, name='edit_event'),
-    url(r'^events/delete/(?P<id_event>\d+)/$', DeleteEvent, name='delete_event'),
+    url(r'^events/new$', CreateEvent.as_view(), name='new_event'),
+    url(r'^events/(?P<pk>\d+)/$', EventUpdate.as_view(), name='edit_event'),
+    url(r'^events/delete/(?P<pk>\d+)/$', EventDelete.as_view(), name='delete_event'),
 ]

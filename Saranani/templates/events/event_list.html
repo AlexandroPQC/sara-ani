@@ -120,8 +120,8 @@
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">{{event.title}}<i class="material-icons right">close</i></span>
           <p>{{event.description}}</p>
+          <a class="waves-effect waves-light btn-large red" href="{% url 'delete_event' event.id %}"><i class="material-icons left">delete</i>Eliminar</a>
           <a class="waves-effect waves-light btn-large" href="{% url 'edit_event' event.id %}"><i class="material-icons left">mode_edit</i>Editar</a>
-          <a class="waves-effect waves-light btn-large" href="{% url 'delete_event' event.id %}"><i class="material-icons left">delete</i>Eliminar</a>
         </div>
       </div>
     </div>
