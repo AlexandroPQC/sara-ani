@@ -10,6 +10,12 @@ class EventListView(ListView):
     model = Event
     template_name = 'events/event_list'
 
+class CreateEvent(CreateView):
+    model = Event
+    form_class = EventForm
+    template_name = 'events/event_form.html'
+    success_url = reverse_lazy('events')
+
 
 def EventView(request):
     if request.method == 'POST':
@@ -38,13 +44,6 @@ def DeleteEvent(request, id_event):
         event.delete()
         return redirect('events')
     return render(request, 'events/event_delete.html', {'event':event})
-
-
-class CreateEvent(CreateView):
-    model = Event
-    form_class = EventForm
-    template_name = 'events/event_form.html'
-    success_url = reverse_lazy('events')
 
 
 class EventUpdate(UpdateView):

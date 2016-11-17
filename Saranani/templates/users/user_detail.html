@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load material_form %}
 {% block title %} Eventos {% endblock %}
 
 {% block nav-bar %}
@@ -78,35 +77,31 @@
 {% block content %}
 
 
-  <style type="text/css">
-    html, body {
-        background: #eee;
-        height: 100%;
-    }
-  </style>
-
-<style type="text/css">
-
-    @media only screen and (min-width : 601px) {
-        #id_card_type_container {
-            margin-top: 40px;
-            margin-left: 50px;
-      }
-
-</style>
-
 <div class="row valign change-form">
   <div class="col s12 m8 offset-m2  l8 offset-l2">
     <div class="card">
-        <form method="POST">
-        <div class="card-content">
-          {% csrf_token %}
-          {% form form=form %}{% endform %}
+      <div class="card-content">
+          <img src="{{ user.avatar }}" alt="" class="circle user-img responsive-img">
+          <div class="block">
+            <h5 class="center indigo-text">{{ user.username }}</h5>
+            <p class="light center">{{ user.first_name }} {{user.last_name}}</p>
           </div>
-          <div class="card-action">
-          <button type="submit" name="_submit" class="btn">Guardar</button>
-          </div>
-        </form>
+          <hr>
+          <h4 class="left-align"><i class="mdi-social-school"></i> Eventos Creados</h4>
+          <ul class="collection">
+            {% for list_events, tags in ev_tags %}
+
+            <li class="collection-item avatar">
+              <i class="material-icons circle">folder</i>
+              <span class="title">hola</span>
+              <p>First Line <br>
+                 Second Line
+              </p>
+              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
     </div>
   </div>
 </div>

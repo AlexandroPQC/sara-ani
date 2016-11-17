@@ -6,14 +6,14 @@
 
     {% if user.is_authenticated %}
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">Perfil</a></li>
+      <li><a href="{% url 'users:user_detail' user.id %}">Perfil</a></li>
       <li><a href="#!">Configuración</a></li>
       <li class="divider"></li>
         <li><a href="{% url 'user-logout' %}">Cerrar Sesion</a></li>
     </ul>
     <!-- Mobile dropdown -->
     <ul id="dropdown2" class="dropdown-content">
-      <li><a href="#!">Perfil</a></li>
+      <li><a href="{% url 'users:user_detail' user.id %}">Perfil</a></li>
       <li><a href="#!">Configuración</a></li>
       <li class="divider"></li>
       <li><a href="{% url 'user-logout' %}">Cerrar Sesion</a></li>
