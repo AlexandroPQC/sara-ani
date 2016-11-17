@@ -24,3 +24,21 @@ def EventView(request):
     else:
         form = EventForm()
     return render(request, 'events/event_form.html', {'form':form})
+
+def EditEvent(request, id_event):
+    event = Event.objects.get(id=id_event)
+    if request.method == 'GET':
+        form = EventForm(instance=event)
+    else:
+        form = EventForm(request.POST, instance=event)
+        if form.is_valid:
+            form.save()
+        return redirect('events')
+    return render(request, 'events/event_form.html', {'form':form})
+
+def DeleteEvent(request, id_event):
+    event = Event.objects.get(id=id_event)
+    if request.method == 'POST':
+        event.delete()
+        return redirect('events')
+    return render(request, 'events/event_delete.html', {'event':event})

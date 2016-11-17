@@ -9,24 +9,24 @@ class EventForm(forms.ModelForm):
         fields = [
             'title',
             'description',
-            'state',
             'webpage',
             'attachment',
+            'category',
             'PlaceSchedule'
         ]
         labels = {
             'title' : 'Título',
             'description' : 'Descripción',
-            'state' : 'Estado',
             'webpage' : 'Página Web',
             'attachment' : 'Banner',
+            'category' : 'Categoría(s)',
             'PlaceSchedule' : 'Lugar y horario'
         }
         widgets = {
             'title' : forms.TextInput(attrs={'class':'form-control'}),
             'description' : forms.TextInput(attrs={'class':'form-control'}),
-            'state' : forms.TextInput(attrs={'class':'form-control'}),
             'webpage' : forms.TextInput(attrs={'class':'form-control'}),
             'attachment' : forms.TextInput(attrs={'class':'form-control'}),
+            'category' : forms.CheckboxSelectMultiple(),
             'PlaceSchedule' : forms.CheckboxSelectMultiple(),
         }
