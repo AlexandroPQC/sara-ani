@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %} Eventos {% endblock %}
+
+{% block nav-bar %}
+
+    {% if user.is_authenticated %}
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="{% url 'users:user_detail' user.id %}">Perfil</a></li>
+      <li><a href="#!">Configuración</a></li>
+      <li class="divider"></li>
+        <li><a href="{% url 'user-logout' %}">Cerrar Sesion</a></li>
+    </ul>
+    <!-- Mobile dropdown -->
+    <ul id="dropdown2" class="dropdown-content">
+      <li><a href="{% url 'users:user_detail' user.id %}">Perfil</a></li>
+      <li><a href="#!">Configuración</a></li>
+      <li class="divider"></li>
+      <li><a href="{% url 'user-logout' %}">Cerrar Sesion</a></li>
+    </ul>
+      <nav class="blue-grey darken-1 valign">
+        <div class="nav-wrapper">
+           <a href="#!" class="brand-logo"><i class="material-icons">group_work</i>Sarañani</a>
+           <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+           <ul class="right hide-on-med-and-down">
+             <li><a href="https://github.com/AlexandroPQC/sara-ani">Dashboard</a></li>
+             <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
+             <li>
+               <a class="dropdown-button" href="#!" data-activates="dropdown1">{{ user.first_name }} {{user.last_name}}
+                 <img src="{{ user.avatar }}" class="circle responsive-img left" />
+                 <i class="material-icons right">arrow_drop_down</i>
+               </a>
+             </li>
+           </ul>
+           <ul class="side-nav" id="mobile-nav">
+             <li><a href="https://github.com/AlexandroPQC/sara-ani">Dashboard</a></li>
+             <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
+             <li>
+               <a class="dropdown-button" href="#!" data-activates="dropdown2">{{ user.first_name }} {{user.last_name}}
+                 <i class="material-icons right">arrow_drop_down</i>
+               </a>
+             </li>
+           </ul>
+         </div>
+      </nav>
+
+    {% else %}
+      <nav class="blue-grey darken-1 valign">
+        <div class="nav-wrapper">
+           <a href="#!" class="brand-logo"><i class="material-icons">group_work</i>Sarañani</a>
+           <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+           <ul class="right hide-on-med-and-down">
+             <li><a href="https://github.com/AlexandroPQC/sara-ani">GitHub</a></li>
+             <li>
+               <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+                 Ingresar con Facebook
+               </a>
+             </li>
+           </ul>
+           <ul class="side-nav" id="mobile-nav">
+             <li><a href="https://github.com/AlexandroPQC/sara-ani">Eventos</a></li>
+             <li>
+               <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+                 Ingresar con Facebook
+               </a>
+             </li>
+           </ul>
+         </div>
+      </nav>
+
+    {% endif %}
+
+{% endblock %}
