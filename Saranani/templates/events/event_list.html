@@ -47,9 +47,17 @@
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">{{event.title}}<i class="material-icons right">close</i></span>
           <p>{{event.description}}</p>
-          <a class="waves-effect waves-light btn-large yellow" href="{% url 'detail_event' event.id %}"><i class="material-icons left">view_agenda</i>Detalles</a>
-          <a class="waves-effect waves-light btn-large red" href="{% url 'delete_event' event.id %}"><i class="material-icons left">delete</i>Eliminar</a>
-          <a class="waves-effect waves-light btn-large" href="{% url 'edit_event' event.id %}"><i class="material-icons left">mode_edit</i>Editar</a>
+          <div class="fixed-action-btn horizontal click-to-toggle">
+            <a class="btn-floating btn-large red">
+              <i class="material-icons">menu</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating red" href="{% url 'delete_event' event.id %}"><i class="material-icons">delete</i></a></li>
+              <li><a class="btn-floating yellow darken-1" href="{% url 'edit_event' event.id %}"><i class="material-icons">mode_edit</i></a></li>
+              <li><a class="btn-floating green"><i class="material-icons">grade</i></a></li>
+              <li><a class="btn-floating blue" href="{% url 'detail_event' event.id %}"><i class="material-icons">view_agenda</i></a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
