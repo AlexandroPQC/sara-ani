@@ -3,7 +3,9 @@
 {% block title %} Eventos {% endblock %}
 
 
-{% block toolbar %}
+
+{% block content %}
+
 {% if user.is_authenticated %}
 <div class="row">
   <div class="col s12 m6 l8">
@@ -25,9 +27,6 @@
 </div>
 {% else %}
 {% endif %}
-{% endblock %}
-
-{% block content %}
 
 <div class="row">
   {% if object_list %}
@@ -48,6 +47,7 @@
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">{{event.title}}<i class="material-icons right">close</i></span>
           <p>{{event.description}}</p>
+          <a class="waves-effect waves-light btn-large yellow" href="{% url 'detail_event' event.id %}"><i class="material-icons left">view_agenda</i>Detalles</a>
           <a class="waves-effect waves-light btn-large red" href="{% url 'delete_event' event.id %}"><i class="material-icons left">delete</i>Eliminar</a>
           <a class="waves-effect waves-light btn-large" href="{% url 'edit_event' event.id %}"><i class="material-icons left">mode_edit</i>Editar</a>
         </div>

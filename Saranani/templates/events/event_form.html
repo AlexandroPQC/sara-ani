@@ -3,14 +3,22 @@
 {% block title %} Eventos {% endblock %}
 
 {% block content %}
+{% load material_form %}
 
 <div class="row valign change-form">
   <div class="col s12 m8 offset-m2  l8 offset-l2">
     <div class="card">
         <form method="POST">
         <div class="card-content">
+          <h4>Configuración del evento</h4>
           {% csrf_token %}
-          {% form form=form %}{% endform %}
+          {% form %}
+             {% part form.title prefix %}<i class="material-icons prefix">input</i>{% endpart %}
+             {% part form.webpage prefix %}<i class="material-icons prefix">web</i>{% endpart %}
+             {% part form.description prefix %}<i class="material-icons prefix">comment</i>{% endpart %}
+             {% part form.attachment prefix %}<i class="material-icons prefix">perm_media</i>{% endpart %}
+             {% part form.category label %}<h5>Categoría(s) del evento</h5>{% endpart %}
+         {% endform %}
           </div>
           <div class="card-action">
           <button type="submit" name="_submit" class="btn">Guardar</button>

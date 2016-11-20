@@ -1,0 +1,21 @@
+{% extends 'base_navbar.html' %}
+{% load material_form %}
+{% block title %} Eventos {% endblock %}
+
+
+{% block content %}
+
+<div class="row valign change-form">
+  <div class="col s12 m8 offset-m2  l8 offset-l2">
+    <div class="card">
+     <h2>{{ event.title }}</h2>
+     <p>
+         {{ event.description }}
+     </p>
+     <h5>{{ event.webpage }}</h5>
+     <img class="materialboxed" width="650" src="{{ event.attachment }}">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

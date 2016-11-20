@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 from .models import Event
 from .forms import EventForm
@@ -9,6 +9,10 @@ from .forms import EventForm
 class EventListView(ListView):
     model = Event
     template_name = 'events/event_list'
+
+class EventDetailView(DetailView):
+    model = Event
+    template_name = 'events/event_detail.html'
 
 class CreateEvent(CreateView):
     model = Event

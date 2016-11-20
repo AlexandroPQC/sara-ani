@@ -1,6 +1,8 @@
 from django import forms
 from .models import Event
+from django.forms import formset_factory
 from material import *
+
 class EventForm(forms.ModelForm):
 
     class Meta:
@@ -22,11 +24,18 @@ class EventForm(forms.ModelForm):
             'category' : 'Categoría(s)',
             'PlaceSchedule' : 'Lugar y horario'
         }
+        help_texts = {
+            'title': ('El título del evento.'),
+        }
         widgets = {
-            'title' : forms.TextInput(attrs={'class':'form-control'}),
-            'description' : forms.TextInput(attrs={'class':'form-control'}),
-            'webpage' : forms.TextInput(attrs={'class':'form-control'}),
-            'attachment' : forms.TextInput(attrs={'class':'form-control'}),
+            'title' : forms.TextInput(),
+            'description' : forms.Textarea(),
+            'webpage' : forms.TextInput(),
+            'attachment' : forms.TextInput(),
             'category' : forms.CheckboxSelectMultiple(),
             'PlaceSchedule' : forms.CheckboxSelectMultiple(),
         }
+
+        layout = Layout(
+            Fieldset("sadjfaskldjf")
+        )
