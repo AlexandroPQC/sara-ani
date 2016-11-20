@@ -9,6 +9,7 @@ from .forms import EventForm
 class EventListView(ListView):
     model = Event
     template_name = 'events/event_list'
+    paginate_by = 6
 
 class EventDetailView(DetailView):
     model = Event
