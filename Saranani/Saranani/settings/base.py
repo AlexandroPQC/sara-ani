@@ -118,7 +118,12 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_LOGIN_URL = '/error/'
 SOCIAL_AUTH_USER_MODEL = 'users.User'
 
-SOCIAL_AUTH_FACEBOOK_SOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'ru_RU',
+  'fields': 'id, name, email, age_range'
+}
 
 SOCIAL_AUTH_PIPELINE = (
         'social.pipeline.social_auth.social_details',

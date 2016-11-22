@@ -14,6 +14,13 @@ class EventListView(ListView):
 class EventDetailView(DetailView):
     model = Event
     template_name = 'events/event_detail.html'
+    context_object_name = 'event'
+
+    def get_context_data(self, **kwargs):
+        context = super(EventDetailView, self).get_context_data(**kwargs)
+        
+        return context
+
 
 class CreateEvent(CreateView):
     model = Event

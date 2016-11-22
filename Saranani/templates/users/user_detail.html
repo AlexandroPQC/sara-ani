@@ -9,20 +9,20 @@
   <div class="col s12 m8 offset-m2  l8 offset-l2">
     <div class="card-panel hoverable">
       <div class="card-content">
-          <img src="{{ user.avatar }}" alt="" class="circle user-img responsive-img">
+          <img src="{{ object.avatar }}" alt="" class="circle user-img responsive-img">
           <div class="block">
-            <h5 class="center indigo-text">{{ user.username }}</h5>
-            <p class="light center">{{ user.first_name }} {{user.last_name}}</p>
+            <h5 class="center indigo-text">{{ object.username }}</h5>
+            <p class="light center">{{ object.first_name }} {{ object.last_name }}</p>
           </div>
           <hr>
           <h4 class="left-align"><i class="mdi-social-school"></i> Eventos Creados</h4>
           <ul class="collection">
-            {% for list_events, tags in ev_tags %}
+            {% for wishes in list_wishes %}
 
             <li class="collection-item avatar">
               <i class="material-icons circle">folder</i>
-              <span class="title">hola</span>
-              <p>First Line <br>
+              <span class="title">{{ wishes.event }}</span>
+              <p>{{ wishes.date }}<br>
                  Second Line
               </p>
               <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>

@@ -1,16 +1,15 @@
 from django.shortcuts import render
 from django.views.generic import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import User
-from apps.events.models import Event
+from apps.wishes.models import Wishlist
 
-class UserDetailView(DetailView):
+class UserDetailView(LoginRequiredMixin, DetailView):
 
     model = User
 
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
-        list_events =  Event.objects.filter(title = context['object'])
-        tags = [ event.tag.all() for event in list_events ]
-        context['ev_tags'] =  zip(list_events, tags )
+        context['list_wishes'] =  Wishlist.objects.filter(user = context['object'])
         return context
